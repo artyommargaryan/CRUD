@@ -93,15 +93,10 @@ app.put("/api/user/:id", async (req, res) => {
 app.delete("/api/user/:id", async (req, res) => {
     const id = req.params.id;
     const userExists = await User.exists({_id: id});
-    if (!userExists) {
-        return res.status(404).json({error: 'User not found to delete'})
-    }
 
     await User.findByIdAndDelete(id).then((user) => {
-        if (user) {
-            res.status(200).json({message: `User with id ${id} deleted successfully`});
-            // res.status(204).end();
-        }
+        // Omitting user existence and object details from the response
+        res.status(200).json({message: `User with is deleted successfully`});
     }).catch(() => {
         res.status(500).json({error: 'Internal server error'});
     });

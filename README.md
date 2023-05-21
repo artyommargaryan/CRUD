@@ -36,12 +36,18 @@ Make sure you have the following software installed on your system:
     npm run server
     ```
 
-
 The server will start running on `http://localhost:3000`
 
-
-
 ## API Endpoints
+`Request body` is JSON. Here is example of `Request body`:
+```JSON
+    {
+      "name": "Ava",
+      "surname": "Davis",
+      "age": 24,
+      "email": "ava.davis@example.com"
+    }
+```
 
 ### Create a User
 
@@ -94,7 +100,7 @@ The following validations are applied:
 - For any other internal server errors, a `500 Internal Server Error` response is returned with a JSON body containing
   the `error` field set to `'Internal server error'`.
 
-### Contributing
+## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a
 pull request.
