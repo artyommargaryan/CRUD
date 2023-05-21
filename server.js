@@ -30,7 +30,7 @@ app.use(express.json());
 
 app.post("/api/user", async (req, res) => {
     if (!isValidRequestBody(req.body)) {
-        return res.status(400).json({'body': 'invalid_arguments'});
+        return res.status(400).json({'error': 'invalid_arguments'});
     }
 
     const data = new User({
@@ -67,7 +67,7 @@ app.get("/api/user/:id", async (req, res) => {
 
 app.put("/api/user/:id", async (req, res) => {
     if (!isValidRequestBody(req.body)) {
-        return res.status(400).json({'body': 'invalid_arguments'});
+        return res.status(400).json({'error': 'invalid_arguments'});
     }
 
     let upId = req.params.id;
